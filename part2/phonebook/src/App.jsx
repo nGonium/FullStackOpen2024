@@ -17,9 +17,12 @@ const App = () => {
     if (persons.find(({ name }) => name.toLowerCase() === newName.toLowerCase())) 
       return alert(`${newName} is already added to phonebook`)
     const newPerson = { name: newName, number: newNumber }
-    setPersons(persons.concat(newPerson))
-    setNewName('')
-    setNewNumber('')
+    axios.post(PERSONS_URL, newPerson).then(() => {
+      setPersons(persons.concat(newPerson))
+      setNewName('')
+      setNewNumber('')
+    })
+    
   }
 
   const handleNameFilterChange = (event) => 
