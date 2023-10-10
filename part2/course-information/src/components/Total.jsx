@@ -4,7 +4,9 @@ const Total = (props) => {
     .reduce((subtotal, exercises) => subtotal + exercises)
   
   return <p>
-    Number of exercises {total}
+    <strong>
+      total of {total} exercises
+    </strong>
   </p>
 }
 
